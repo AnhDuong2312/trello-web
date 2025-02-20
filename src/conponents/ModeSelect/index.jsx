@@ -6,6 +6,7 @@ import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 import { useColorScheme } from '@mui/material/styles'
+import Box from '@mui/material/Box'
 
 
 function ModeSelect() {
@@ -16,32 +17,47 @@ function ModeSelect() {
     };
   
     return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
+      <FormControl size="small" sx={{minWidth: '120px'}}>
+        <InputLabel 
+          id="label-select-dark-light-mode"
+          sx={{
+            color: 'white',
+            '&.Mui-focused': {color: 'white'}
+          }}
+        >
+          Mode
+        </InputLabel>
         <Select
           labelId="label-select-dark-light-mode"
           id="select-dark-light-mode"
           value={mode}
           label="Mode"
           onChange={handleChange}
+          sx={{
+            color: 'white',
+            '.MuiOutlinedInput-notchedOutline': { borderColor: 'white'},
+            '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: 'white'},
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'white'},
+            '.MuiSvgIcon-root': { color: 'white'}
+          }}
         >
           
           <MenuItem value="light">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
-              <LightModeIcon /> Light
-            </div>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
+              <LightModeIcon fontSize='small' /> Light
+            </Box>
           </MenuItem>
   
           <MenuItem value="dark">
-            <div style={{ display: 'flex', alignItems: 'center' ,gap: '5px'}}>
-              <DarkModeIcon  /> Dark
-            </div>  
+            <Box style={{ display: 'flex', alignItems: 'center' , gap: '5px'}}>
+              <DarkModeIcon  fontSize='small' /> Dark
+            </Box>  
           </MenuItem>
   
           <MenuItem value="system">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
-              <SettingsBrightnessIcon  /> System
-            </div>  
+            <Box style={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
+              <SettingsBrightnessIcon fontSize='small'  /> System
+            </Box>  
           </MenuItem>
   
         </Select>
