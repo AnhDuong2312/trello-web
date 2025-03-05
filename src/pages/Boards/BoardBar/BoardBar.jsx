@@ -1,15 +1,17 @@
 import  Box  from '@mui/material/Box'
-import Chip from '@mui/material/Chip';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import VpnLockIcon from '@mui/icons-material/VpnLock';
-import AddToDriveIcon from '@mui/icons-material/AddToDrive';
-import BoltIcon from '@mui/icons-material/Bolt';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
-import { Tooltip } from '@mui/material';
-import Button from "@mui/material/Button";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import Chip from '@mui/material/Chip'
+import DashboardIcon from '@mui/icons-material/Dashboard'
+import VpnLockIcon from '@mui/icons-material/VpnLock'
+import AddToDriveIcon from '@mui/icons-material/AddToDrive'
+import BoltIcon from '@mui/icons-material/Bolt'
+import FilterListIcon from '@mui/icons-material/FilterList'
+import Avatar from '@mui/material/Avatar'
+import AvatarGroup from '@mui/material/AvatarGroup'
+import { Tooltip } from '@mui/material'
+import Button from "@mui/material/Button"
+import PersonAddIcon from '@mui/icons-material/PersonAdd'
+import { capitalizeFirstLetter } from '~/utils/formatters'
+
 
 const MENU_STYLES = {
   color: 'white',
@@ -26,7 +28,8 @@ const MENU_STYLES = {
 
 }
 
-function BoardBar() {
+function BoardBar({ board }) {
+
   return (
     <Box px={2} sx={{
         width: '100%',
@@ -36,7 +39,6 @@ function BoardBar() {
         justifyContent: 'space-between',
         gap: 2,
         overflowX: 'auto',
-        borderBottom: '1px solid #00bfa5',
         bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
         '&::-webkit-scrollbar-track': {m: 2}
     }}>
@@ -44,14 +46,14 @@ function BoardBar() {
             <Chip 
               sx={MENU_STYLES}
               icon={<DashboardIcon />} 
-              label="AnhDuongDev" 
+              label={board?.title} 
               clickable
             />
 
             <Chip 
               sx={MENU_STYLES}
               icon={<VpnLockIcon />} 
-              label="Public/Private Workspace" 
+              label= {capitalizeFirstLetter(board?.type)}
               clickable
             />
 
