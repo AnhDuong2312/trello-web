@@ -86,6 +86,7 @@ function BoardContent({ board }) {
       }}>
           <ListColumns columns={orderedColumns} />
           <DragOverlay dropAnimation = {dropAnimation}>
+            {/* kiểm tra */}
             {(!activeDragItemType ) && null}
             {(activeDragItemId && activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) && <Column column={activeDragItemData}/>}
             {(activeDragItemId && activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD) && <TrelloCard card={activeDragItemData}/>}
